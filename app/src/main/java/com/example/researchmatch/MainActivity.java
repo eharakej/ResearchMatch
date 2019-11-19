@@ -8,7 +8,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
-    
+
     //This is a test to see if Harpreet ca Push
 
     private FirebaseAuth mAuth;
