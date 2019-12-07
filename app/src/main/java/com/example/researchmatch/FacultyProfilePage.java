@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 public class FacultyProfilePage extends AppCompatActivity {
 
+
+    //faculty profile page - Vichu push
+
     ImageView imageViewFProfilePic;
 
     TextView textViewFacultyProfilePageIntro;
