@@ -29,35 +29,71 @@
             android:text="Register"/>
 
         <EditText
-            android:layout_margin="8dp"
-            android:id="@+id/usernameField"
-            android:padding="16dp"
-            android:textColor="#000"
-            android:hint="username"
+            android:id="@+id/editTextUserName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <EditText
-            android:layout_margin="8dp"
-            android:id="@+id/emailField"
-            android:padding="16dp"
-            android:inputType="textEmailAddress"
-            android:textColor="#000"
-            android:hint="email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName" />
 
         <EditText
-            android:padding="16dp"
-            android:layout_margin="8dp"
-            android:id="@+id/passwordField"
-            android:textColor="#000"
-            android:inputType="textPassword"
+            android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
-            android:hint="password"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Email "
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/editTextStudentFName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="First Name"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editTextStudentLName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Last Name"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editTextStudentSchool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="School/University"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editTextYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Year"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editTextIntendedDegree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Intended Degree"
+            android:inputType="textPersonName" />
 
         <Button
-            android:id="@+id/registerBtn"
+            android:id="@+id/registerFacBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -66,7 +102,7 @@
             android:layout_gravity="center"/>
 
         <TextView
-            android:id="@+id/loginTxtView"
+            android:id="@+id/loginTxtViewFac"
             android:layout_gravity="center"
             android:layout_margin="16dp"
             android:textSize="16sp"

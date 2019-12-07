@@ -30,11 +30,11 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        loginTxtView = (TextView)findViewById(R.id.loginTxtView);
-        registerBtn = (Button)findViewById(R.id.registerBtn);
-        emailField = (EditText)findViewById(R.id.emailField);
-        usernameField = (EditText)findViewById(R.id.usernameField);
-        passwordField = (EditText)findViewById(R.id.passwordField);
+        loginTxtView = (TextView)findViewById(R.id.loginTxtViewFac);
+        registerBtn = (Button)findViewById(R.id.registerFacBtn);
+        emailField = (EditText)findViewById(R.id.emailFacField);
+        usernameField = (EditText)findViewById(R.id.usernameFacField);
+        passwordField = (EditText)findViewById(R.id.passwordFacField);
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
         loginTxtView.setOnClickListener(new View.OnClickListener() {
