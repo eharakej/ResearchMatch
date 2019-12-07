@@ -15,10 +15,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -70,7 +71,7 @@ public class ProfileActivity extends AppCompatActivity {
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             @SuppressWarnings("VisibleForTests")
 
-                            String downloadUrl = taskSnapshot.StorageReference.getDownloadUrl().toString();
+                            String downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();
                             mDatabaseUsers.child(userID).child("name").setValue(name);
                             mDatabaseUsers.child(userID).child("image").setValue(downloadUrl);
 

@@ -22,10 +22,12 @@ import com.squareup.picasso.Picasso;
 
 
 public class MainActivity extends AppCompatActivity {
+
     private RecyclerView recyclerView;
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 final String post_key = getRef(position).getKey().toString();
                 viewHolder.setTitle(model.getTitle());
                 viewHolder.setDesc(model.getDesc());
-                viewHolder.setImageUrl(getApplicationContext(), model.getImageUrl());
+                viewHolder.setImageUrl(model.getImageUrl());
                 viewHolder.setUserName(model.getUsername());
                 viewHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
