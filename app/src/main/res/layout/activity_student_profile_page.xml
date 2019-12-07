@@ -4,39 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FacultyProfilePage">
+    tools:context=".StudentProfilePage">
+
+    <ImageView
+        android:id="@+id/imageViewSProfilePic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextSFirstName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textViewStudentProfilePageIntro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="100dp"
+        android:text="Student Profile Page"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewSProfilePic"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextFResearchInterests"
+        android:id="@+id/editTextSFirstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="54dp"
-        android:ems="10"
-        android:hint="Research Interests"
-        android:inputType="textPersonName"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextFBio" />
-
-    <EditText
-        android:id="@+id/editTextFFirstName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginBottom="10dp"
         android:ems="10"
         android:hint="First Name"
         android:inputType="textPersonName"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextFLastName"
+        app:layout_constraintBottom_toTopOf="@+id/editTextSLastName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewFProfilePic" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewSProfilePic" />
 
     <EditText
-        android:id="@+id/editTextFLastName"
+        android:id="@+id/editTextSLastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -46,123 +56,109 @@
         android:hint="Last Name"
         android:inputType="textPersonName"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@id/editTextFSchool"
+        app:layout_constraintBottom_toTopOf="@+id/editTextSSchool"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextFFirstName" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextSFirstName" />
 
     <EditText
-        android:id="@+id/editTextFDepartment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="10dp"
-        android:ems="10"
-        android:hint="Department"
-        android:inputType="textPersonName"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextFTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextFSchool" />
-
-    <EditText
-        android:id="@+id/editTextFTitle"
+        android:id="@+id/editTextSSchool"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:ems="10"
-        android:hint="Title"
+        android:hint="School"
         android:inputType="textPersonName"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextLocation"
+        app:layout_constraintBottom_toTopOf="@+id/editTextSProgram"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextFDepartment" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextSLastName" />
 
     <EditText
-        android:id="@+id/editTextLocation"
+        android:id="@+id/editTextSProgram"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:ems="10"
-        android:hint="Primary Location "
+        android:hint="Program"
         android:inputType="textPersonName"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextFEducation"
+        app:layout_constraintBottom_toTopOf="@+id/editTextSYear"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextFTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextSSchool" />
 
     <EditText
-        android:id="@+id/editTextFEducation"
+        android:id="@+id/editTextSYear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:ems="10"
-        android:hint="Education"
+        android:hint="Year in School"
         android:inputType="textPersonName"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextFBio"
+        app:layout_constraintBottom_toTopOf="@+id/editTextSDegree"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextLocation" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextSProgram" />
 
     <EditText
-        android:id="@+id/editTextFBio"
+        android:id="@+id/editTextSDegree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Intended Degree"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSYear" />
+
+    <EditText
+        android:id="@+id/editTextSBio"
+        android:layout_width="359dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="10dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="Bio"
         android:inputType="textMultiLine"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextFResearchInterests"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextFEducation" />
-
-    <TextView
-        android:id="@+id/textViewFacultyProfilePageIntro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="100dp"
-        android:text="Faculty Profile Page"
+        app:layout_constraintBottom_toTopOf="@+id/editTextSLinkToResume"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageViewFProfilePic"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageViewFProfilePic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextFFirstName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextSDegree" />
 
     <EditText
-        android:id="@+id/editTextFSchool"
+        android:id="@+id/editTextSLinkToResume"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:ems="10"
-        android:hint="Institution "
-        android:inputType="textPersonName"
+        android:gravity="start|top"
+        android:hint="Link to Resume"
+        android:inputType="textMultiLine"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextFDepartment"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextFLastName"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextSBio" />
+
+    <Button
+        android:id="@+id/buttonSSaveEdits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:text="Save Edits"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewSProfilePic" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
