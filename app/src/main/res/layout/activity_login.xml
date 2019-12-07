@@ -66,6 +66,18 @@
             android:layout_height="wrap_content"
             android:text="No Account ? Sign up"/>
 
+        <Button
+            android:id="@+id/facultyRegisterBtn"
+            android:layout_width="134dp"
+            android:layout_height="35dp"
+            android:text="I am a Faculty" />
+
+        <Button
+            android:id="@+id/studentRegisterBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I am a Student" />
+
     </LinearLayout>
 
 

@@ -21,11 +21,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     private EditText loginEmail, loginPass;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
-    private Button loginBtn;
+    private Button loginBtn, studentRegisterBtn, facultyRegisterBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,8 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn = (Button)findViewById(R.id.loginBtn);
         loginEmail = (EditText)findViewById(R.id.login_email);
         loginPass = (EditText)findViewById(R.id.login_password);
+        studentRegisterBtn = (Button)findViewById(R.id.studentRegisterBtn);
+        facultyRegisterBtn = (Button) findViewById(R.id.facultyRegisterBtn);
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
@@ -85,5 +87,18 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        if (studentRegisterBtn == view){
+            Intent studentRegisterIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(studentRegisterIntent);
+
+        } else if (facultyRegisterBtn == view){
+            Intent facultyRegisterIntent = new Intent(LoginActivity.this, RegisterActivityFaculty.class);
+            startActivity(facultyRegisterIntent);
+        }
     }
 }
