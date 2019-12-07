@@ -16,6 +16,8 @@ public class FacultyProfilePage extends AppCompatActivity {
     EditText editTextFFirstName, editTextFLastName, editTextFSchool, editTextFDepartment, editTextFTitle;
     EditText editTextFLocation, editTextFEducation, editTextFBio, editTextFResearchInterest;
 
+    //Not really working right now
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
