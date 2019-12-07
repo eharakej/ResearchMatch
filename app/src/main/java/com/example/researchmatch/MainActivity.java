@@ -1,6 +1,5 @@
 package com.example.researchmatch;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -33,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //initialize recyclerview and FIrebase objects
+
+        //initialize recyclerview and Firebase objects
         recyclerView = (RecyclerView)findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
@@ -92,9 +92,9 @@ public class MainActivity extends AppCompatActivity {
             TextView post_desc = mView.findViewById(R.id.post_desc_txtview);
             post_desc.setText(desc);
         }
-        public void setImageUrl(Context ctx, String imageUrl){
+        public void setImageUrl(String imageUrl){
             ImageView post_image = mView.findViewById(R.id.post_image);
-            Picasso.with(ctx).load(imageUrl).into(post_image);
+            Picasso.get().load(imageUrl).into(post_image);
         }
         public void setUserName(String userName){
             TextView postUserName = mView.findViewById(R.id.post_user);
