@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 public class FacultyProfilePage extends AppCompatActivity implements View.OnClickListener {
 
+
+    //faculty profile page - Vichu push
+
     ImageView imageViewFProfilePic;
 
     TextView textViewFacultyProfilePageIntro;
