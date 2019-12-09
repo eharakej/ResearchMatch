@@ -5,18 +5,25 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -30,6 +37,7 @@ public class ProfileActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabaseUsers;
     private StorageReference mStorageRef;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +74,8 @@ public class ProfileActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             @SuppressWarnings("VisibleForTests")
-                            String downloadUrl = taskSnapshot.getDownloadUrl().toString();
+
+                            String downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();
                             mDatabaseUsers.child(userID).child("name").setValue(name);
                             mDatabaseUsers.child(userID).child("image").setValue(downloadUrl);
 
@@ -106,6 +115,42 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.login) {
+            Intent loginIntent = new Intent(this, LoginActivity.class);
+            startActivity(loginIntent);
+
+        }else if(item.getItemId() == R.id.register) {
+            Intent searchIntent = new Intent(this, RegisterActivity.class);
+            startActivity(searchIntent);
+        }else if(item.getItemId() == R.id.createpost) {
+            Intent postIntent = new Intent(this, PostActivity.class);
+            startActivity(postIntent);
+
+        } else if(item.getItemId() == R.id.itemProfilePage) {
+            Intent searchIntent = new Intent(this, ProfileActivity.class);
+            startActivity(searchIntent);
+
+        }else if(item.getItemId() == R.id.logout) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            Toast.makeText(this, "Signed out", Toast.LENGTH_SHORT).show();
+            startActivity(intent);
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+
     }
 
 }

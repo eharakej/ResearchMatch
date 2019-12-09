@@ -2,83 +2,75 @@ package com.example.researchmatch;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
-public class LoginActivity extends AppCompatActivity {
-    private EditText loginEmail, loginPass;
-    private FirebaseAuth mAuth;
+public class SinglePostActivity extends AppCompatActivity {
+
+    private ImageView singelImage;
+    private TextView singleTitle, singleDesc;
+    String post_key = null;
     private DatabaseReference mDatabase;
-    private Button loginBtn;
+    private Button deleteBtn;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_single_post);
 
-        loginBtn = (Button)findViewById(R.id.loginBtn);
-        loginEmail = (EditText)findViewById(R.id.login_email);
-        loginPass = (EditText)findViewById(R.id.login_password);
-
+        singelImage = (ImageView)findViewById(R.id.singleImageview);
+        singleTitle = (TextView)findViewById(R.id.singleTitle);
+        singleDesc = (TextView)findViewById(R.id.singleDesc);
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Blogzone");
+        post_key = getIntent().getExtras().getString("PostID");
+        deleteBtn = (Button)findViewById(R.id.deleteBtn);
         mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
-
-        loginBtn.setOnClickListener(new View.OnClickListener() {
+        deleteBtn.setVisibility(View.INVISIBLE);
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(LoginActivity.this, "PROCESSING....", Toast.LENGTH_LONG).show();
-                String email = loginEmail.getText().toString().trim();
-                String password = loginPass.getText().toString().trim();
 
-                if (!TextUtils.isEmpty(email)&& !TextUtils.isEmpty(password)){
+                mDatabase.child(post_key).removeValue();
 
-                    mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()){
-                                checkUserExistence();
-                            }else {
-                                Toast.makeText(LoginActivity.this, "Couldn't login, User not found", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                }else {
-                    Toast.makeText(LoginActivity.this, "Complete all fields", Toast.LENGTH_SHORT).show();
-                }
+                Intent mainintent = new Intent(SinglePostActivity.this, MainActivity.class);
+                startActivity(mainintent);
             }
         });
-    }
 
-    public void checkUserExistence(){
 
-        final String user_id = mAuth.getCurrentUser().getUid();
+        mDatabase.child(post_key);
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                String post_title = (String) dataSnapshot.child("title").getValue();
+                String post_desc = (String) dataSnapshot.child("desc").getValue();
+                String post_image = (String) dataSnapshot.child("imageUrl").getValue();
+                String post_uid = (String) dataSnapshot.child("uid").getValue();
 
-                if (dataSnapshot.hasChild(user_id)){
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                }else {
-                    Toast.makeText(LoginActivity.this, "User not registered!", Toast.LENGTH_SHORT).show();
+                singleTitle.setText(post_title);
+                singleDesc.setText(post_desc);
+                Picasso.get().load(post_image).into(singelImage);
+                if (mAuth.getCurrentUser().getUid().equals(post_uid)) {
+
+                    deleteBtn.setVisibility(View.VISIBLE);
                 }
             }
 
