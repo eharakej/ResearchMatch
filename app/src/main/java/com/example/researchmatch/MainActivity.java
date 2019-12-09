@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 viewHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent singleActivity = new Intent(MainActivity.this, SinglePost Activity.class);
+                        Intent singleActivity = new Intent(MainActivity.this, SinglePostActivity.class);
                         singleActivity.putExtra("PostID", post_key);
                         startActivity(singleActivity);
                     }
