@@ -77,6 +77,13 @@ public class StudentProfilePage extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View view) {
 
+        if (view == buttonSSaveEdits){
+
+            Intent intentOne = new Intent(this,ProfileActivity.class);
+            startActivity(intentOne);
+
+        }
+
     }
 
 }
