@@ -36,8 +36,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+
+        //setContentView(R.layout.activity_bottom_nav);
+       // BottomNavigationView navView = findViewById(R.id.nav_view);
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        //AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+           //     R.id.navigation_home,
+           //     R.id.navigation_dashboard,
+                        //R.id.navigation_notifications)
+            //    .build();
+       // NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+      //  NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+      //  NavigationUI.setupWithNavController(navView, navController);
+       // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+      //  setSupportActionBar(toolbar);//
+//
+
+
+
+
         //initialize recyclerview and FIrebase objects
         recyclerView = (RecyclerView)findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -55,22 +74,9 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bottom_nav);
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home,
-                R.id.navigation_dashboard,
-                R.id.navigation_notifications)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(navView, navController);
-    }
+
+
+
 
     @Override
     protected void onStart() {
@@ -92,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 viewHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent singleActivity = new Intent(MainActivity.this, SinglePostActivity.class);
+                        Intent singleActivity = new Intent(MainActivity.this, SinglePost Activity.class);
                         singleActivity.putExtra("PostID", post_key);
                         startActivity(singleActivity);
                     }
