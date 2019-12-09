@@ -40,7 +40,7 @@
             android:layout_marginTop="20dp"
             android:text="delete post"
             android:background="#FFEA0404"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:textStyle="bold"/>
 
     </LinearLayout>

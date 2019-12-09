@@ -1,16 +1,18 @@
 package com.example.researchmatch;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,11 +24,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+public class LoginActivity extends AppCompatActivity {
     private EditText loginEmail, loginPass;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
-    private Button loginBtn, studentRegisterBtn, facultyRegisterBtn;
+    private Button loginBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +38,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         loginBtn = (Button)findViewById(R.id.loginBtn);
         loginEmail = (EditText)findViewById(R.id.login_email);
         loginPass = (EditText)findViewById(R.id.login_password);
-        studentRegisterBtn = (Button)findViewById(R.id.studentRegisterBtn);
-        facultyRegisterBtn = (Button) findViewById(R.id.facultyRegisterBtn);
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
@@ -62,7 +62,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         }
                     });
                 }else {
-
                     Toast.makeText(LoginActivity.this, "Complete all fields", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -89,22 +88,40 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         });
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
 
     @Override
-    public void onClick(View view) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.login) {
+            Intent loginIntent = new Intent(this, LoginActivity.class);
+            startActivity(loginIntent);
 
-        if (studentRegisterBtn == view){
-            Intent studentRegisterIntent = new Intent(LoginActivity.this, RegisterActivity.class);
-            startActivity(studentRegisterIntent);
+        }else if(item.getItemId() == R.id.register) {
+            Intent searchIntent = new Intent(this, RegisterActivity.class);
+            startActivity(searchIntent);
+        }else if(item.getItemId() == R.id.createpost) {
+            Intent postIntent = new Intent(this, PostActivity.class);
+            startActivity(postIntent);
 
-        } else if (facultyRegisterBtn == view){
-            Intent facultyRegisterIntent = new Intent(LoginActivity.this, RegisterActivity.class);
-            startActivity(facultyRegisterIntent);
+        } else if(item.getItemId() == R.id.itemProfilePage) {
+            Intent searchIntent = new Intent(this, ProfileActivity.class);
+            startActivity(searchIntent);
+
+        }else if(item.getItemId() == R.id.logout) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            Toast.makeText(this, "Signed out", Toast.LENGTH_SHORT).show();
+            startActivity(intent);
+            finish();
         }
-        else if (loginBtn == view){
-            Intent RegisterIntent = new Intent(LoginActivity.this, RegisterActivity.class);
-            startActivity(RegisterIntent);
-        }
+        return super.onOptionsItemSelected(item);
 
     }
 }
