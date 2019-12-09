@@ -100,5 +100,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Intent facultyRegisterIntent = new Intent(LoginActivity.this, RegisterActivityFaculty.class);
             startActivity(facultyRegisterIntent);
         }
+        else if (loginBtn == view){
+            Intent RegisterIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(RegisterIntent);
+        }
+
     }
 }
