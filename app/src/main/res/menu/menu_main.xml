@@ -1,7 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
@@ -11,13 +10,26 @@
         app:showAsAction="always"
         android:title="Add"/>
     <item
-        android:id="@+id/logout"
+        android:id="@+id/login"
         android:orderInCategory="100"
-        android:title="Logout"
+        android:title="Login" />
+    <item
+        android:id="@+id/register"
+        android:orderInCategory="100"
+        android:title="Register"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/createpost"
+        android:orderInCategory="100"
+        android:title="Create Post"
         app:showAsAction="never" />
     <item
         android:id="@+id/itemProfilePage"
         android:orderInCategory="101"
         android:title="Profile Page" />
+    <item
+        android:id="@+id/logout"
+        app:showAsAction="always"
+        android:title="Logout"/>
 
 </menu>
