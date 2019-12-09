@@ -78,6 +78,8 @@ public class ProfileActivity extends AppCompatActivity {
                             Toast.makeText(ProfileActivity.this, "Successful", Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(ProfileActivity.this, LoginActivity.class);
                             startActivity(i);
+
+
                         }
                     });
 
