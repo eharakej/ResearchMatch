@@ -1,8 +1,13 @@
 package com.example.researchmatch;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,7 +47,36 @@ public class StudentProfilePage extends AppCompatActivity implements View.OnClic
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+
+        if(item.getItemId() == R.id.itemProfilePage){
+
+            Intent oneItent = new Intent (this,StudentProfilePage.class);
+            startActivity(oneItent);
+
+        }else if (item.getItemId() == R.id.logout){
+
+            Intent twoItent = new Intent (this,MainActivity.class);
+            startActivity(twoItent);
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public void onClick(View view) {
 
     }
+
 }
