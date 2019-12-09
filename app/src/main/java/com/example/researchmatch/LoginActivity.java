@@ -3,6 +3,7 @@ package com.example.researchmatch;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -97,7 +98,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             startActivity(studentRegisterIntent);
 
         } else if (facultyRegisterBtn == view){
-            Intent facultyRegisterIntent = new Intent(LoginActivity.this, RegisterActivityFaculty.class);
+            Intent facultyRegisterIntent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(facultyRegisterIntent);
         }
         else if (loginBtn == view){

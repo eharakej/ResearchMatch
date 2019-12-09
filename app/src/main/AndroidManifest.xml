@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegisterActivityFaculty"></activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".QuestionareActivity"></activity>
+        <activity android:name=".RegisterActivityFaculty" />
+        <activity android:name=".LoginActivity" />
         <activity android:name=".ProfileActivity" />
         <activity
             android:name=".CreatePostActivity"
@@ -20,7 +21,7 @@
         <activity android:name=".MessageActivity" />
         <activity android:name=".PostActivity" />
         <activity android:name=".UserActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
