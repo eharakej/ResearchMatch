@@ -100,6 +100,9 @@ public class RegisterActivity extends AppCompatActivity {
             Intent searchIntent = new Intent(this, ProfileActivity.class);
             startActivity(searchIntent);
 
+        } else if(item.getItemId() == R.id.questionnaire) {
+            Intent searchIntent = new Intent(this, QuestionareActivity.class);
+            startActivity(searchIntent);
         }else if(item.getItemId() == R.id.logout) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -110,6 +113,8 @@ public class RegisterActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
 
     }
+
+
 }
 
 

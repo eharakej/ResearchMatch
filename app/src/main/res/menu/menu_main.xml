@@ -11,25 +11,22 @@
         android:title="Add"/>
     <item
         android:id="@+id/login"
-        android:orderInCategory="100"
         android:title="Login" />
     <item
         android:id="@+id/register"
-        android:orderInCategory="100"
         android:title="Register"
         app:showAsAction="never" />
     <item
         android:id="@+id/createpost"
-        android:orderInCategory="100"
         android:title="Create Post"
         app:showAsAction="never" />
     <item
         android:id="@+id/itemProfilePage"
-        android:orderInCategory="101"
         android:title="Profile Page" />
     <item
+        android:id="@+id/questionnaire"
+        android:title="Questionnaire"/>
+    <item
         android:id="@+id/logout"
-        app:showAsAction="always"
         android:title="Logout"/>
-
 </menu>

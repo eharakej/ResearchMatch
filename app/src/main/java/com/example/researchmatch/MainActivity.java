@@ -9,18 +9,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -123,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         }
         public void setImageUrl(Context ctx, String imageUrl){
             ImageView post_image = mView.findViewById(R.id.post_image);
-            Picasso.with(ctx).load(imageUrl).into(post_image);
+            Picasso.get().load(imageUrl).into(post_image);
         }
         public void setUserName(String userName){
             TextView postUserName = mView.findViewById(R.id.post_user);
