@@ -24,11 +24,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     private EditText loginEmail, loginPass;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
-    private Button loginBtn;
+    private Button loginBtn, facultyRegisterBtn, studentRegisterBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,16 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn = (Button)findViewById(R.id.loginBtn);
         loginEmail = (EditText)findViewById(R.id.login_email);
         loginPass = (EditText)findViewById(R.id.login_password);
+
+        facultyRegisterBtn = findViewById(R.id.facultyRegisterBtn);
+        studentRegisterBtn = findViewById(R.id.studentRegisterBtn);
+
+        facultyRegisterBtn.setOnClickListener(this);
+        studentRegisterBtn.setOnClickListener(this);
+
+        loginBtn.setOnClickListener(this);
+
+
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
@@ -56,6 +66,12 @@ public class LoginActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()){
                                 checkUserExistence();
+
+                                Toast.makeText(LoginActivity.this, "User Found, Logging In", Toast.LENGTH_SHORT).show();
+
+                                Intent mainPageIntent = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(mainPageIntent);
+
                             }else {
                                 Toast.makeText(LoginActivity.this, "Couldn't login, User not found", Toast.LENGTH_SHORT).show();
                             }
@@ -126,5 +142,20 @@ public class LoginActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view == facultyRegisterBtn){
+
+            Intent facultyRegisterIntent = new Intent(this, RegisterActivityFaculty.class);
+            startActivity(facultyRegisterIntent);
+
+        }else if(view == studentRegisterBtn){
+
+            Intent studentRegisterIntent = new Intent(this, RegisterActivity.class);
+            startActivity(studentRegisterIntent);
+
+        }
     }
 }

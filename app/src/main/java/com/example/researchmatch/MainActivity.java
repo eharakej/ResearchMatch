@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             TextView post_desc = mView.findViewById(R.id.post_desc_txtview);
             post_desc.setText(desc);
         }
-        public void setImageUrl(Context ctx, String imageUrl){
+        public void setImageUrl(Context applicationContext, String imageUrl){
             ImageView post_image = mView.findViewById(R.id.post_image);
             Picasso.get().load(imageUrl).into(post_image);
         }
